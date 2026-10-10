@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PostFinder</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="stamp">PIN</div>
+  <div>
+    <h1>PostFinder</h1>
+    <span>Messy address in, serviceable post office out. Runs on open-weight models.</span>
+  </div>
+</header>
+<main>
+  <section class="left card">
+    <h2>Delivery address</h2>
+    <textarea id="addr" placeholder="Type or paste a messy address"></textarea>
+    <button class="go" id="go">Find post office</button>
+    <div class="chips" id="chips"></div>
+  </section>
+  <section class="right">
+    <div class="card" id="result">
+      <h2>Result</h2>
+      <p class="meta">Enter an address to see the matched post office.</p>
+    </div>
+    <div id="map"></div>
+  </section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
