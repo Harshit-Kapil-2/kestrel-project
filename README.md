@@ -1,62 +1,54 @@
 # PostFinder 📮
-> **Messy address in, serviceable post office out.**
+> **Geological Location & Nearest Post Office Resolver powered by Python `geopy`**
 
-PostFinder is a desktop application powered by an intelligent postal resolution engine that maps unstructured, noisy Indian delivery addresses to their nearest serviceable Indian Post Office and PIN code, plotting them directly onto an interactive Leaflet map.
+PostFinder is a desktop application that converts noisy, unstructured address text into an exact geological location (similar to Google Maps), finds the physically nearest serviceable Indian Post Office, and displays comprehensive postal beat details, available services, and interactive map navigation.
+
+---
+
+## 🌟 Key Capabilities
+
+1. **Text to Geological Location (Google Maps style)**:
+   - Takes messy or partial user text and converts it into precise geographical coordinates $(\text{latitude}, \text{longitude})$ and a structured formatted address using Python `geopy` (ArcGIS, OpenStreetMap Nominatim, and Photon engines).
+2. **Geodesic Nearest Post Office Calculation**:
+   - Calculates the true ellipsoidal distance (WGS-84) using `geopy.distance.geodesic`.
+   - Ranks all candidate post offices by actual physical proximity (kilometers / meters).
+3. **Rich Post Office Details**:
+   - Post office name & PIN code
+   - Category & type: Sub Post Office (S.O), Head Post Office (H.O), Branch Office (B.O)
+   - Postal Circle, Division, and Region
+   - Available services: Speed Post, Registered Letter, Parcel Booking, Post Office Savings Bank (POSB), Aadhaar Services, PLI
+   - Operating hours and counter timings
+   - One-click Google Maps Navigation link
+4. **Interactive Leaflet Desktop Map**:
+   - User geological location marker (Blue)
+   - Nearest post office marker (Red)
+   - Route trajectory dashed polyline connecting user to the post office
+   - Alternative nearby post offices with proximity tags
 
 ---
 
 ## 🚀 How to Run the Desktop Application
 
-### Method 1: Double-Click Launcher (Recommended)
-Simply double-click either:
-- **`PostFinder.bat`**: Launches the desktop window with console logs.
-- **`PostFinder.vbs`**: Launches silently in native desktop window mode with no background console.
+### Double-Click Launcher (Recommended)
+- **`PostFinder.bat`**: Double-click to launch with console logs.
+- **`PostFinder.vbs`**: Double-click for a silent native desktop window without background terminal.
 
-### Method 2: Command Line
-From the project folder, run:
+### Command Line
 ```bash
-# Launch native desktop application
+# Launch desktop app window
 py -3.11 desktop.py
 # or
 py -3.11 main.py
 
-# Run standalone API server (for browser at http://localhost:8000)
-py -3.11 main.py --server
+# Query directly from terminal (CLI)
+py -3.11 main.py --cli "flat 4b nr big bazar opp sbi koramangla 5th blk blr 560034"
 
 # Run automated test suite
 py -3.11 main.py --test
 
-# Query directly from terminal
-py -3.11 main.py --cli "flat 4b nr big bazar opp sbi koramangla 5th blk blr 560034"
+# Standalone API server (http://127.0.0.1:8000)
+py -3.11 main.py --server
 ```
-
----
-
-## 🧠 Backend Engine Architecture
-
-The backend engine (`backend/`) processes raw, noisy addresses through a multi-stage NLP & spatial matching pipeline:
-
-1. **Address Normalization & Cleaning (`backend/cleaner.py`)**:
-   - Expands common Indian delivery abbreviations (`nr` → Near, `opp` → Opposite, `blk` → Block, `sec` → Sector, `h no` → House No, etc.).
-   - Converts city abbreviations (`blr` → Bangalore, `bom` → Mumbai, `del` → Delhi, `hyd` → Hyderabad, `ldh` → Ludhiana, `noida` → Gautam Buddha Nagar, etc.).
-   - Translates state abbreviations (`UP`, `MP`, `HP`, `TN`, `KA`, `PB`, `MH`, etc.) to full state jurisdictions.
-   - Maps block numbers and ordinal suffixes to Roman numerals (`5th blk` → `V Block`).
-
-2. **In-Memory Multi-Index Data Loader (`backend/data_loader.py`)**:
-   - Indexes all 39,736 post offices from `pincodes.csv` into memory upon startup.
-   - Separate indices for exact 6-digit PIN codes, 2-to-5 digit prefix trees, districts, cities, states, and word tokens.
-   - Classifies offices into Head Post Office (H.O), Sub Post Office (S.O), and Branch Office (B.O).
-
-3. **Multi-Stage Candidate Resolution (`backend/resolver.py`)**:
-   - **Stage 1 (Exact PIN)**: Matches 6-digit PIN code and scores sub-locality/block within that postal beat (e.g. `560034` + `5th blk` → `Koramangala V Block`).
-   - **Stage 2 (Prefix PIN)**: Expands incomplete PIN codes (e.g. `20130` → `201301 Noida Complex`).
-   - **Stage 3 (Administrative Hierarchy)**: Pinpoints State → District/City → Locality when no PIN is supplied.
-   - **Stage 4 (Token & Landmark Correlation)**: Semantic token matching across all 39k offices.
-
-4. **Geocoding & Spatial Routing (`backend/geocoder.py`)**:
-   - High-precision live Nominatim geocoding with local JSON caching (`coordinates_cache.json`).
-   - Comprehensive offline fallback centroid dictionary for all 36 Indian states and 60+ major districts.
-   - Calculates Haversine distance in kilometers and renders delivery trajectory polylines on Leaflet.
 
 ---
 
@@ -66,7 +58,7 @@ The backend engine (`backend/`) processes raw, noisy addresses through a multi-s
 **Request Body:**
 ```json
 {
-  "address": "flat 4b nr big bazar opp sbi koramangla 5th blk blr 560034"
+  "address": "Connaught Place New Delhi 110001"
 }
 ```
 
@@ -74,41 +66,49 @@ The backend engine (`backend/`) processes raw, noisy addresses through a multi-s
 ```json
 {
   "best": {
-    "office": "Koramangala V Block",
-    "pincode": "560034",
-    "type": "Sub Post Office (Delivery)",
-    "district": "Bangalore",
-    "state": "Karnataka",
-    "lat": 12.9374,
-    "lon": 77.6270
+    "office": "Connaught Place",
+    "pincode": "110001",
+    "type": "Sub Post Office",
+    "district": "Central Delhi",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "circle": "Delhi Postal Circle",
+    "division": "Central Delhi Postal Division",
+    "delivery_status": "Delivery Office (Serviceable Beat)",
+    "services": [
+      "Speed Post & Tracking",
+      "Registered Post",
+      "Parcel & Logistics Post",
+      "Post Office Savings Bank (POSB)",
+      "Aadhaar Services (Enrollment & Update)",
+      "Postal Life Insurance (PLI)"
+    ],
+    "timings": "Mon - Sat: 9:00 AM - 5:00 PM (Public Counters: 9:30 AM - 3:30 PM)",
+    "lat": 28.6318,
+    "lon": 77.2185,
+    "distance_km": 0.09,
+    "directions_url": "https://www.google.com/maps/dir/?api=1&origin=28.6310,77.2183&destination=28.6318,77.2185"
   },
   "confidence": 0.99,
-  "distance_km": 0.6,
-  "parsed": {
-    "cleaned_address": "Flat 4b, Near big bazar, Opposite sbi, Koramangla 5th block, Bangalore 560034"
-  },
-  "trace": [
-    "Cleaned address and expanded common Indian postal abbreviations.",
-    "Extracted 6-digit PIN code: 560034",
-    "Retrieved 5 registered post offices for PIN 560034.",
-    "Selected nearest serviceable office: Koramangala V Block (PIN: 560034).",
-    "Selection criteria: Exact PIN match; Matched block numeral 'V' in office name (Koramangala V Block).",
-    "Calculated distance: 0.6 km between delivery address and post office."
-  ],
+  "distance_km": 0.09,
   "query_point": {
-    "lat": 12.9345,
-    "lon": 77.6225
+    "lat": 28.6310,
+    "lon": 77.2183,
+    "formatted_address": "110001, New Delhi, Delhi",
+    "maps_url": "https://www.google.com/maps?q=28.6310,77.2183"
+  },
+  "parsed": {
+    "cleaned_address": "Connaught Place, New Delhi, Delhi 110001",
+    "geocoded_address": "110001, New Delhi, Delhi"
   },
   "alternatives": [
     {
-      "office": "Koramangala I Block (560034)",
-      "score": "98%",
-      "lat": 12.9366,
-      "lon": 77.6229
+      "office": "Janpath (110001)",
+      "score": "95%",
+      "distance_km": 0.65,
+      "lat": 28.6258,
+      "lon": 77.2192
     }
   ]
 }
 ```
-
-### `GET /api/health`
-Checks server status and reports total indexed records.

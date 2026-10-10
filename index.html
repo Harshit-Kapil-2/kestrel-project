@@ -3,34 +3,88 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PostFinder</title>
+<title>PostFinder - Nearest Post Office Locator</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
-  <div class="stamp">PIN</div>
-  <div>
-    <h1>PostFinder</h1>
-    <span>Messy address in, serviceable post office out. Runs on open-weight models.</span>
+  <div class="header-left">
+    <div class="stamp-logo">PIN</div>
+    <div>
+      <h1>PostFinder</h1>
+      <span class="subtitle">Geological Nearest Post Office Finder · Powered by Python Geopy</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="engine-badge">
+      <span class="pulse-dot"></span> Geopy GPS Active
+    </span>
   </div>
 </header>
+
 <main>
-  <section class="left card">
-    <h2>Delivery address</h2>
-    <textarea id="addr" placeholder="Type or paste a messy address"></textarea>
-    <button class="go" id="go">Find post office</button>
-    <div class="chips" id="chips"></div>
-  </section>
-  <section class="right">
-    <div class="card" id="result">
-      <h2>Result</h2>
-      <p class="meta">Enter an address to see the matched post office.</p>
+  <!-- Left Column: Input & Controls -->
+  <section class="left-panel">
+    <div class="card input-card">
+      <div class="card-title-row">
+        <h2>📍 Enter Delivery Address</h2>
+        <button class="text-btn" id="clearBtn" title="Clear address">✕ Clear</button>
+      </div>
+
+      <div class="textarea-wrapper">
+        <textarea id="addr" placeholder="Type or paste any messy address (e.g. flat 4b nr big bazar opp sbi koramangla 5th blk blr 560034)"></textarea>
+      </div>
+
+      <div class="btn-group">
+        <button class="go-btn" id="go">
+          <span class="btn-icon">🔍</span>
+          <span id="btnText">Find Nearest Post Office</span>
+        </button>
+        <button class="geo-btn" id="locBtn" title="Use my current GPS location">
+          <span>🎯 Current Location</span>
+        </button>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="chips-section">
+        <div class="chips-label">Sample Messy Addresses:</div>
+        <div class="chips" id="chips"></div>
+      </div>
+
+      <div class="history-section" id="historySection" style="display:none;">
+        <div class="chips-label">Recent Searches:</div>
+        <div class="history-chips" id="historyChips"></div>
+      </div>
     </div>
-    <div id="map"></div>
+  </section>
+
+  <!-- Right Column: Interactive Results & Map -->
+  <section class="right-panel">
+    <div class="card result-card" id="result">
+      <div class="empty-state">
+        <div class="empty-icon">📮</div>
+        <h3>Ready to locate nearest post office</h3>
+        <p class="meta">Enter any delivery address on the left or click a sample to see the nearest post office and interactive route.</p>
+      </div>
+    </div>
+
+    <div class="card map-card">
+      <div class="map-header">
+        <span class="map-title">🗺️ Interactive Delivery Route Map</span>
+        <span class="map-hint">Click markers for details · Drag to explore</span>
+      </div>
+      <div id="map"></div>
+    </div>
   </section>
 </main>
+
+<!-- Interactive Toast Notification -->
+<div id="toast" class="toast">Copied to clipboard!</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="script.js"></script>
 </body>

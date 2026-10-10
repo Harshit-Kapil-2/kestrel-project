@@ -782,5 +782,809 @@
     "lat": 31.639433,
     "lon": 76.659461,
     "address": "177118, Bhoranj, Himachal Pradesh"
+  },
+  "po_chanaurhamirpur177113": {
+    "lat": 31.890661,
+    "lon": 76.121069,
+    "address": "Chanaur Branch Post Office"
+  },
+  "po_dadasibahamirpur177106": {
+    "lat": 31.92651,
+    "lon": 76.089488,
+    "address": "Dadasiba Branch Post Office"
+  },
+  "po_dehragopipurhamirpur177101": {
+    "lat": 31.880689,
+    "lon": 76.212862,
+    "address": "Bhartiya Post Office Dehra Gopipur"
+  },
+  "po_deotsidhhamirpur177047": {
+    "lat": 31.472929,
+    "lon": 76.551167,
+    "address": "Post Office, Bhijari"
+  },
+  "po_dhaliarahamirpur177103": {
+    "lat": 31.843549,
+    "lon": 76.183853,
+    "address": "177103, Dehra Gopipur, Himachal Pradesh"
+  },
+  "po_dhanetahamirpur177041": {
+    "lat": 31.667092,
+    "lon": 76.366019,
+    "address": "Post Office Daneta"
+  },
+  "po_galorehamirpur177026": {
+    "lat": 31.614539,
+    "lon": 76.430941,
+    "address": "Phahal Branch Post Office"
+  },
+  "po_gandhichwkhamirpurhamirpur177001": {
+    "lat": 31.709693,
+    "lon": 76.527364,
+    "address": "Branch Post Office"
+  },
+  "po_garlihamirpur177108": {
+    "lat": 31.809049,
+    "lon": 76.23736,
+    "address": "Garli Branch Post Office"
+  },
+  "po_govtdegreeclghamirpurhamirpur177005": {
+    "lat": 31.695313,
+    "lon": 76.519464,
+    "address": "177005, Hamirpur, Himachal Pradesh"
+  },
+  "po_gummerhamirpur177116": {
+    "lat": 31.709693,
+    "lon": 76.527364,
+    "address": "Branch Post Office"
+  },
+  "po_hamirpurhamirpur177001": {
+    "lat": 31.709693,
+    "lon": 76.527364,
+    "address": "Branch Post Office"
+  },
+  "po_jahuhamirpur176048": {
+    "lat": 31.6027,
+    "lon": 76.6956,
+    "address": "Sub Post Office"
+  },
+  "po_jalarihamirpur177042": {
+    "lat": 31.7584,
+    "lon": 76.3685,
+    "address": "Jalari Branch Post Office"
+  },
+  "po_janiarihamirpur177006": {
+    "lat": 31.635829,
+    "lon": 76.387498,
+    "address": "177006, Galore, Himachal Pradesh"
+  },
+  "po_jauraambhamirpur174312": {
+    "lat": 31.557409,
+    "lon": 76.438274,
+    "address": "174312, Barsar, Himachal Pradesh"
+  },
+  "po_jawalamukhihamirpur176031": {
+    "lat": 31.873199,
+    "lon": 76.319504,
+    "address": "176031, Jawalamukhi, Himachal Pradesh"
+  },
+  "po_kakkarhamirpur177028": {
+    "lat": 31.819811,
+    "lon": 76.608651,
+    "address": "Kakkar Sub Post Office"
+  },
+  "po_kangoohamirpur177040": {
+    "lat": 31.680129,
+    "lon": 76.428243,
+    "address": "177040, Galore, Himachal Pradesh"
+  },
+  "po_kanjianhamirpur177025": {
+    "lat": 31.673761,
+    "lon": 76.637481,
+    "address": "Kanjian Branch Post Office"
+  },
+  "po_khudianhamirpur176030": {
+    "lat": 31.909715,
+    "lon": 76.381881,
+    "address": "Khundian Branch Post Office"
+  },
+  "po_kirohahamirpur177102": {
+    "lat": 31.709693,
+    "lon": 76.527364,
+    "address": "Branch Post Office"
+  },
+  "po_kohalahamirpur176036": {
+    "lat": 31.772312,
+    "lon": 76.325387,
+    "address": "Post Office Kohla"
+  },
+  "po_kohalahamirpur177102": {
+    "lat": 31.772312,
+    "lon": 76.325387,
+    "address": "Post Office Kohla"
+  },
+  "po_kothamirpur177027": {
+    "lat": 31.719204,
+    "lon": 76.558481,
+    "address": "Kot Post Office"
+  },
+  "po_kutherahamirpur177020": {
+    "lat": 31.7267,
+    "lon": 76.5042,
+    "address": "Post Office Kuthera"
+  },
+  "po_ladraurhamirpur176043": {
+    "lat": 31.583698,
+    "lon": 76.634828,
+    "address": "Post Office Ladror"
+  },
+  "po_lambloohamirpur177029": {
+    "lat": 31.668027,
+    "lon": 76.583937,
+    "address": "Sub Post Office Lambloo"
+  },
+  "po_lanjhamirpur176026": {
+    "lat": 32.098467,
+    "lon": 76.145548,
+    "address": "Lanj Branch Post Office"
+  },
+  "po_maharaihamirpur176049": {
+    "lat": 31.483842,
+    "lon": 76.596096,
+    "address": "176049, Dhatwal, Himachal Pradesh"
+  },
+  "po_mairhamirpur176042": {
+    "lat": 31.567643,
+    "lon": 76.597353,
+    "address": "Sob Post Office Mair"
+  },
+  "po_masroorhamirpur176034": {
+    "lat": 31.709693,
+    "lon": 76.527364,
+    "address": "Branch Post Office"
+  },
+  "po_mehrehamirpur174313": {
+    "lat": 31.709693,
+    "lon": 76.527364,
+    "address": "Branch Post Office"
+  },
+  "po_mohinhamirpur177030": {
+    "lat": 31.6904,
+    "lon": 76.54324,
+    "address": "Mohin, Hamirpur, Himachal Pradesh"
+  },
+  "po_mundkharhamirpur176044": {
+    "lat": 31.603373,
+    "lon": 76.689506,
+    "address": "176044, Bhoranj, Himachal Pradesh"
+  },
+  "po_nadaunhamirpur177033": {
+    "lat": 31.783162,
+    "lon": 76.344886,
+    "address": "Post Office"
+  },
+  "po_nagrotasurianhamirpur176027": {
+    "lat": 32.057621,
+    "lon": 76.087337,
+    "address": "Sub Post Office Nagrota Surian"
+  },
+  "po_nehranpokherhamirpur177104": {
+    "lat": 31.868796,
+    "lon": 76.22133,
+    "address": "177104, Dehra Gopipur, Himachal Pradesh"
+  },
+  "po_paragpurhamirpur177107": {
+    "lat": 31.825419,
+    "lon": 76.211111,
+    "address": "Pragpur Sub Post Office"
+  },
+  "po_patlendarhamirpur176111": {
+    "lat": 31.741939,
+    "lon": 76.578745,
+    "address": "176111, Tira Sujanpur, Himachal Pradesh"
+  },
+  "po_pirsalohihamirpur177034": {
+    "lat": 31.752977,
+    "lon": 76.298862,
+    "address": "Pirsaluhi Sub Post Office"
+  },
+  "po_qasbakotlahamirpur177111": {
+    "lat": 31.509468,
+    "lon": 76.543299,
+    "address": "Kotla, Dhatwal, Hamirpur, Himachal Pradesh"
+  },
+  "po_railhamirpur177045": {
+    "lat": 31.742395,
+    "lon": 76.414191,
+    "address": "Rail Dt Hamirpur Hp Branch Post Office"
+  },
+  "po_rakkarhamirpur177043": {
+    "lat": 31.781823,
+    "lon": 76.247455,
+    "address": "Sub Post Office"
+  },
+  "po_sadhialhamirpur177046": {
+    "lat": 31.709693,
+    "lon": 76.527364,
+    "address": "Branch Post Office"
+  },
+  "po_salaunihamirpur174311": {
+    "lat": 31.578885,
+    "lon": 76.512703,
+    "address": "174311, Barsar, Himachal Pradesh"
+  },
+  "po_sansarpurterracehamirpur176501": {
+    "lat": 31.924246,
+    "lon": 75.927088,
+    "address": "Sansarpur Terrace Sub Post Office"
+  },
+  "po_serahamirpur177038": {
+    "lat": 31.738825,
+    "lon": 76.336033,
+    "address": "Post Office Sera"
+  },
+  "po_sujanpurtirahamirpur176110": {
+    "lat": 31.834937,
+    "lon": 76.502614,
+    "address": "Sub Post Office"
+  },
+  "po_sunehathamirpur177117": {
+    "lat": 31.709693,
+    "lon": 76.527364,
+    "address": "Branch Post Office"
+  },
+  "po_taunidevihamirpur177023": {
+    "lat": 31.707873,
+    "lon": 76.609779,
+    "address": "Post Office, Toni Devi"
+  },
+  "po_thaniarihamirpur177006": {
+    "lat": 31.635829,
+    "lon": 76.387498,
+    "address": "177006, Galore, Himachal Pradesh"
+  },
+  "po_thillhamirpur176055": {
+    "lat": 31.956171,
+    "lon": 76.387038,
+    "address": "Thill Branch Post Office"
+  },
+  "po_thorehamirpur177105": {
+    "lat": 31.877219,
+    "lon": 76.139271,
+    "address": "Thore Branch Post Office"
+  },
+  "po_tihrihamirpur176032": {
+    "lat": 31.859242,
+    "lon": 76.374147,
+    "address": "Tihri Branch Post Office"
+  },
+  "po_tiprihamirpur177112": {
+    "lat": 31.85319,
+    "lon": 76.070158,
+    "address": "Tipri Branch Post Office"
+  },
+  "po_uhalhamirpur177022": {
+    "lat": 31.754823,
+    "lon": 76.610172,
+    "address": "Uhal Branch Post Office"
+  },
+  "user_sector62noidaup20130": {
+    "lat": 28.626626,
+    "lon": 77.365473,
+    "formatted_address": "Sector 62, Ghaziabad, Uttar Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=28.626626,77.3654727"
+  },
+  "po_estategautambuddhanagar201303": {
+    "lat": 28.559783,
+    "lon": 77.361172,
+    "address": "201303, Sector 42, Uttar Pradesh"
+  },
+  "po_hindonnagarghaziabad201302": {
+    "lat": 28.68818,
+    "lon": 77.411359,
+    "address": "Post Office, R-32-33, Nandgram, Ghaziabad, Uttar Pradesh, 201003"
+  },
+  "po_jainindstiralgautambuddhanagar201303": {
+    "lat": 28.559783,
+    "lon": 77.361172,
+    "address": "201303, Sector 42, Uttar Pradesh"
+  },
+  "po_maharishinagarghaziabad201304": {
+    "lat": 28.68818,
+    "lon": 77.411359,
+    "address": "Post Office, R-32-33, Nandgram, Ghaziabad, Uttar Pradesh, 201003"
+  },
+  "po_noidacomplexgautambuddhanagar201301": {
+    "lat": 28.557016,
+    "lon": 77.32624,
+    "address": "201301, Dadri, Uttar Pradesh"
+  },
+  "user_connaughtplacenewdelhi110001": {
+    "lat": 28.632425,
+    "lon": 77.218791,
+    "formatted_address": "110001, New Delhi, Delhi",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=28.6324252,77.218791",
+    "extracted_pincode": "110001"
+  },
+  "po_connaughtplacenewdelhi110001": {
+    "lat": 28.633081,
+    "lon": 77.218335,
+    "address": "Post Office Connaught Place"
+  },
+  "po_newdelhigpocentraldelhi110001": {
+    "lat": 28.653158,
+    "lon": 77.224322,
+    "address": "Post Office"
+  },
+  "po_constitutionhousecentraldelhi110001": {
+    "lat": 28.632425,
+    "lon": 77.218791,
+    "address": "110001, New Delhi, Delhi"
+  },
+  "po_easterncourtcentraldelhi110001": {
+    "lat": 28.632425,
+    "lon": 77.218791,
+    "address": "110001, New Delhi, Delhi"
+  },
+  "po_electioncommissioncentraldelhi110001": {
+    "lat": 28.664695,
+    "lon": 77.230752,
+    "address": "Delhi Election Commission Office"
+  },
+  "po_janpathcentraldelhi110001": {
+    "lat": 28.63115,
+    "lon": 77.22144,
+    "address": "India Post Office Janpath"
+  },
+  "user_marinedrivechurchgatemumbai400020": {
+    "lat": 18.932455,
+    "lon": 72.823826,
+    "formatted_address": "Marine Drive, Church Gate, Mumbai, Maharashtra, 400020",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=18.932454712187,72.823826252312",
+    "extracted_pincode": "400020"
+  },
+  "po_marinelinesmumbai400020": {
+    "lat": 18.93494,
+    "lon": 72.830378,
+    "address": "Mtp Colaba Traffic Post"
+  },
+  "po_marinelines1stxlanemumbai400020": {
+    "lat": 18.947,
+    "lon": 72.8255,
+    "address": "400020, Marine Lines, Kalbadevi, Mumbai, Maharashtra"
+  },
+  "po_marinelinesxrdno12mumbai400020": {
+    "lat": 18.947,
+    "lon": 72.8255,
+    "address": "400020, Marine Lines, Kalbadevi, Mumbai, Maharashtra"
+  },
+  "po_nsrd103to159mdrivemumbai400020": {
+    "lat": 18.931014,
+    "lon": 72.828073,
+    "address": "400020, Church Gate, Maharashtra"
+  },
+  "po_churchgatecentralbuildingsmumbai400020": {
+    "lat": 18.933895,
+    "lon": 72.826393,
+    "address": "Churchgate Post Office, Sitaram Deora Marg, Church Gate, Mumbai, Maharashtra, 400020"
+  },
+  "po_ayakarbhavanmumbai400020": {
+    "lat": 18.938672,
+    "lon": 72.827974,
+    "address": "Aayakar Bhavan, Maharshi Karve Marg, Marine Lines, Mumbai, Maharashtra, 400020"
+  },
+  "user_berthin": {
+    "lat": 51.651176,
+    "lon": -3.043058,
+    "formatted_address": "Berthin, Fairwater, Cwmbran, Torfaen, Wales, NP44 4LB",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=51.651176328834,-3.043058357553"
+  },
+  "po_berthinbilaspur174029": {
+    "lat": 31.417737,
+    "lon": 76.638775,
+    "address": "Berthin Branch Post Office"
+  },
+  "user_nalandasalasi": {
+    "lat": 31.361257,
+    "lon": 76.708336,
+    "formatted_address": "Salasi, Jhandutta, Bilaspur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.361257,76.708336"
+  },
+  "po_nalandacollegenalanda803101": {
+    "lat": 25.202702,
+    "lon": 85.525977,
+    "address": "Nalanda College Branch Post Office"
+  },
+  "po_nalandarsnalanda803111": {
+    "lat": 25.122835,
+    "lon": 85.456202,
+    "address": "Nalanda Branch Post Office"
+  },
+  "po_alinagarnalanda803101": {
+    "lat": 25.17625,
+    "lon": 85.523845,
+    "address": "Alinagar Sub Post Office"
+  },
+  "po_ambernalanda803101": {
+    "lat": 25.205528,
+    "lon": 85.52516,
+    "address": "Amber Sub Post Office"
+  },
+  "po_ashanagarnalanda803118": {
+    "lat": 25.2146,
+    "lon": 85.5077,
+    "address": "803118, Asha Nagar, Nalanda, Bihar"
+  },
+  "user_salasi": {
+    "lat": 31.361257,
+    "lon": 76.708336,
+    "formatted_address": "Salasi, Jhandutta, Bilaspur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.361257,76.708336"
+  },
+  "user_nadaun": {
+    "lat": 31.7812,
+    "lon": 76.3424,
+    "formatted_address": "Nadaun, Hamirpur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.7812,76.3424"
+  },
+  "user_barotiwala": {
+    "lat": 30.90339,
+    "lon": 76.846697,
+    "formatted_address": "Barotiwala, Baddi, Solan, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=30.9033897,76.8466967"
+  },
+  "po_barotiwalasolan174103": {
+    "lat": 30.902601,
+    "lon": 76.836981,
+    "address": "Post Office Barotiwala"
+  },
+  "user_salasihamirpur": {
+    "lat": 31.788793,
+    "lon": 76.456209,
+    "formatted_address": "Salasi, Tira Sujanpur, Hamirpur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.788793,76.456209"
+  },
+  "user_nithamipur": {
+    "lat": 23.246112,
+    "lon": 78.486653,
+    "formatted_address": "Hameerpur, Silwani, Raisen, Madhya Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=23.246112,78.486653"
+  },
+  "user_nithamirpur": {
+    "lat": 31.686401,
+    "lon": 76.521395,
+    "formatted_address": "Hamirpur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.6864006,76.5213953"
+  },
+  "user_kbhgatenithamirpur": {
+    "lat": 31.686401,
+    "lon": 76.521395,
+    "formatted_address": "Hamirpur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.6864006,76.5213953"
+  },
+  "user_museumjaildagshai": {
+    "lat": 30.882958,
+    "lon": 77.050538,
+    "formatted_address": "Dagshai, Solan, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=30.882958,77.050538"
+  },
+  "po_indorejailroadindore452001": {
+    "lat": 22.707617,
+    "lon": 75.879206,
+    "address": "Indore General Post Office"
+  },
+  "po_gayajailgaya823001": {
+    "lat": 24.778061,
+    "lon": 84.980554,
+    "address": "Gaya Jail Branch Post Office"
+  },
+  "po_centraljailfarukhabad209602": {
+    "lat": 27.357648,
+    "lon": 79.523126,
+    "address": "209602, Farrukhabad, Uttar Pradesh"
+  },
+  "po_bhaglpurcentraljailbhagalpur812001": {
+    "lat": 25.257594,
+    "lon": 87.016736,
+    "address": "Bhagalpur Central Jail Sub Post Office"
+  },
+  "po_jailroadsitapur261001": {
+    "lat": 27.564508,
+    "lon": 80.687472,
+    "address": "Sub Post Office"
+  },
+  "po_jailroadbikanerbikaner334001": {
+    "lat": 28.014949,
+    "lon": 73.310577,
+    "address": "Jail Road, Joshiwara, Bikaner, Rajasthan, 334001"
+  },
+  "user_housenoc90barotiwala": {
+    "lat": 30.90339,
+    "lon": 76.846697,
+    "formatted_address": "Barotiwala, Baddi, Solan, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=30.9033897,76.8466967"
+  },
+  "po_councilhousestreetcalcutta700001": {
+    "lat": 22.566683,
+    "lon": 88.345726,
+    "address": "Council House Street, BBD Bag, Kolkata, West Bengal, 700001"
+  },
+  "po_customhousecalcutta700001": {
+    "lat": 22.574601,
+    "lon": 88.346782,
+    "address": "Custom House, 15/1, BBD Bag, Bara Bazar, Kolkata, West Bengal, 700001"
+  },
+  "po_stenohouseagencyamritsar143001": {
+    "lat": 31.62213,
+    "lon": 74.885963,
+    "address": "143001, Ramanand Bagh, Punjab"
+  },
+  "po_parliamenthousenewdelhi110001": {
+    "lat": 28.628276,
+    "lon": 77.216556,
+    "address": "Parliament House"
+  },
+  "po_patialahousecentraldelhi110001": {
+    "lat": 28.615467,
+    "lon": 77.235658,
+    "address": "Post Office Patiala House"
+  },
+  "user_yogsadanneardavschoolsalasi": {
+    "lat": 18.462101,
+    "lon": 83.657701,
+    "formatted_address": "Dav School",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=18.462101,83.657701"
+  },
+  "po_natisevasadanrdnprdmumbai400084": {
+    "lat": 19.096558,
+    "lon": 72.904213,
+    "address": "Post Office, R B Kadam Road, Ghatkopar West, Mumbai Suburban, Maharashtra, 400084"
+  },
+  "po_shityasadanferozepur152116": {
+    "lat": 30.126677,
+    "lon": 74.230043,
+    "address": "152116, Abohar, Punjab"
+  },
+  "po_sadanwadimumbai400078": {
+    "lat": 19.150011,
+    "lon": 72.941917,
+    "address": "Post Office, Centre Village Road, Bhandup West, Kurla, Mumbai Suburban, Maharashtra, 400078"
+  },
+  "po_gandhisevasadanthrissur679302": {
+    "lat": 10.775741,
+    "lon": 76.434681,
+    "address": "679302, Ottappalam, Keralam"
+  },
+  "po_sainikschooltrivandrum695585": {
+    "lat": 8.5831,
+    "lon": 76.8697,
+    "address": "Sainik School Post Office"
+  },
+  "po_xavierhighschoolroadmumbai400056": {
+    "lat": 19.099526,
+    "lon": 72.842097,
+    "address": "St Xaviers High School, St Mary Path, Ville Parle West, Mumbai Suburban, Maharashtra, 400056"
+  },
+  "po_nadiaschoolboardhooghly741101": {
+    "lat": 23.4112,
+    "lon": 88.4888,
+    "address": "Nadia School Board Sub Post Office"
+  },
+  "po_cmpcentreschoolbangalore560025": {
+    "lat": 13.006859,
+    "lon": 77.684777,
+    "address": "Centre Avenue & School Road, Duravani Nagar, Bangalore, Karnataka, 560016"
+  },
+  "po_dshighschoolmumbai400022": {
+    "lat": 19.034839,
+    "lon": 72.860825,
+    "address": "A M K High School, Sion, Mumbai, Maharashtra, 400022"
+  },
+  "po_orissaschoolofengcuttack753010": {
+    "lat": 20.477504,
+    "lon": 85.894188,
+    "address": "Odisha School Of Engineering Branch Post Office"
+  },
+  "po_stxavierschoolraodmumbai400056": {
+    "lat": 19.099526,
+    "lon": 72.842097,
+    "address": "St Xaviers High School, St Mary Path, Ville Parle West, Mumbai Suburban, Maharashtra, 400056"
+  },
+  "po_vadodaraemeschoolvadodara390008": {
+    "lat": 22.346274,
+    "lon": 73.193695,
+    "address": "390008, Sama, Gujarat"
+  },
+  "user_ghumarwin": {
+    "lat": 31.4408,
+    "lon": 76.709702,
+    "formatted_address": "Ghumarwin, Bilaspur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.4408003,76.7097021"
+  },
+  "po_ghumarwinbilaspur174021": {
+    "lat": 31.444337,
+    "lon": 76.703965,
+    "address": "Indian Post Office"
+  },
+  "user_kutherabilaspurmalangan": {
+    "lat": 31.389057,
+    "lon": 76.616455,
+    "formatted_address": "Malangan, Jhandutta, Bilaspur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.389057,76.616455"
+  },
+  "po_bilaspurhobilaspur495001": {
+    "lat": 22.086987,
+    "lon": 82.144917,
+    "address": "Bilaspur Head Post Office"
+  },
+  "po_bilaspurindustrialestatebilaspur495223": {
+    "lat": 22.063842,
+    "lon": 82.135942,
+    "address": "Bilaspur Industrial Estate Sub Post Office"
+  },
+  "po_bilaspurrsbilaspur495004": {
+    "lat": 22.056431,
+    "lon": 82.171731,
+    "address": "Bilaspur Railway Post Office, Rp Mandal"
+  },
+  "po_bilaspurspinningmillsbilaspur495007": {
+    "lat": 22.106156,
+    "lon": 82.081362,
+    "address": "495007, Takhatpur, Chhattisgarh"
+  },
+  "user_kutherabilaspurmalanganhp": {
+    "lat": 31.389057,
+    "lon": 76.616455,
+    "formatted_address": "Malangan, Jhandutta, Bilaspur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.389057,76.616455"
+  },
+  "po_bilaspurbilaspur95221": {
+    "lat": 30.300182,
+    "lon": 77.302468,
+    "address": "Post Office Bilaspur"
+  },
+  "po_bilaspurbilaspur495012": {
+    "lat": 30.300182,
+    "lon": 77.302468,
+    "address": "Post Office Bilaspur"
+  },
+  "po_bilaspurbilaspur495336": {
+    "lat": 30.300182,
+    "lon": 77.302468,
+    "address": "Post Office Bilaspur"
+  },
+  "po_bilaspurbilaspur495554": {
+    "lat": 30.300182,
+    "lon": 77.302468,
+    "address": "Post Office Bilaspur"
+  },
+  "po_bilaspurkutcherybilaspur174001": {
+    "lat": 31.3417,
+    "lon": 76.7629,
+    "address": "Post Office"
+  },
+  "po_kutherabilaspur174026": {
+    "lat": 31.51427,
+    "lon": 76.702071,
+    "address": "Post Office"
+  },
+  "po_newbilaspurtownshipbilaspur174001": {
+    "lat": 31.3417,
+    "lon": 76.7629,
+    "address": "Post Office"
+  },
+  "po_bhakradambilaspur174201": {
+    "lat": 31.404954,
+    "lon": 76.397443,
+    "address": "174201, Shri Naina Devi Ji, Himachal Pradesh"
+  },
+  "po_bilaspuribilaspur174001": {
+    "lat": 31.3417,
+    "lon": 76.7629,
+    "address": "Post Office"
+  },
+  "po_gherwinbilaspur174034": {
+    "lat": 31.315939,
+    "lon": 76.721671,
+    "address": "174034, Jhandutta, Himachal Pradesh"
+  },
+  "user_kutherabilaspurmalanganchatisgarh": {
+    "lat": 31.389057,
+    "lon": 76.616455,
+    "formatted_address": "Malangan, Jhandutta, Bilaspur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.389057,76.616455"
+  },
+  "user_hamirpurhp": {
+    "lat": 31.686401,
+    "lon": 76.521395,
+    "formatted_address": "Hamirpur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.6864006,76.5213953"
+  },
+  "user_hamirpurup": {
+    "lat": 25.952234,
+    "lon": 80.151151,
+    "formatted_address": "Hamirpur, Uttar Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=25.9522345,80.1511515"
+  },
+  "po_hamirpurhamirpur210301": {
+    "lat": 25.956757,
+    "lon": 80.150893,
+    "address": "Post Office, Hamirpur"
+  },
+  "po_hamirpurdistboardhamirpur210301": {
+    "lat": 25.956757,
+    "lon": 80.150893,
+    "address": "Post Office, Hamirpur"
+  },
+  "po_barwahamirpur210502": {
+    "lat": 25.887063,
+    "lon": 80.322385,
+    "address": "Barua Branch Post Office"
+  },
+  "po_bewarhamirpur210501": {
+    "lat": 25.760501,
+    "lon": 79.927298,
+    "address": "Bewar Post Office"
+  },
+  "po_charkharistatehamirpur210421": {
+    "lat": 25.4039,
+    "lon": 79.740997,
+    "address": "210421, Charkhari, Uttar Pradesh"
+  },
+  "po_gohaudhamirpur210434": {
+    "lat": 25.699001,
+    "lon": 79.540007,
+    "address": "Gohand Branch Post Office"
+  },
+  "po_ingohtahamirpur210321": {
+    "lat": 25.756994,
+    "lon": 80.109248,
+    "address": "Ingohata Branch Post Office"
+  },
+  "po_jaitpurhamirpur210423": {
+    "lat": 25.263366,
+    "lon": 79.570517,
+    "address": "Jaitpur Branch Post Office"
+  },
+  "po_jariahamirpur210422": {
+    "lat": 25.758099,
+    "lon": 79.599287,
+    "address": "Jariya Branch Post Office"
+  },
+  "po_kabralhamirpur210424": {
+    "lat": 25.401282,
+    "lon": 80.003909,
+    "address": "Kabrai Branch Post Office"
+  },
+  "po_khannahamirpur210504": {
+    "lat": 25.565926,
+    "lon": 80.066205,
+    "address": "Khanna Branch Post Office"
+  },
+  "po_kulpharhamirpur210425": {
+    "lat": 31.709693,
+    "lon": 76.527364,
+    "address": "Branch Post Office"
   }
 }

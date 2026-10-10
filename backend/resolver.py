@@ -47,7 +47,7 @@ class PostalResolver:
         trace: List[str] = []
 
         # 1. Convert user input into Geological Location using geopy (Google Maps style)
-        trace.append("Converting address into geological coordinates using python geopy...")
+        trace.append("Converting user address into geological coordinates using geopy...")
         user_loc = self.geocoder.geocode_user_location(raw_address, fallback_components=parsed)
 
         user_coords = None
@@ -60,12 +60,12 @@ class PostalResolver:
             user_maps_url = user_loc.get("maps_url")
             trace.append(f"Geopy resolved geological location: {user_formatted_address} ({user_coords[0]}, {user_coords[1]}).")
 
-            # Check if geopy discovered an explicit postal code not in input
+            # Extract postal code from geocoded location if missing
             if not parsed["pincode"] and user_loc.get("extracted_pincode"):
                 parsed["pincode"] = user_loc["extracted_pincode"]
-                trace.append(f"Extracted postal code {parsed['pincode']} from geocoded geological position.")
+                trace.append(f"Extracted PIN code {parsed['pincode']} from geological location.")
         else:
-            trace.append("Could not determine precise geological coordinates; proceeding with postal hierarchy.")
+            trace.append("Could not determine precise geological coordinates; proceeding with postal directory search.")
 
         # 2. Retrieve Candidate Post Offices
         candidates: List[Dict[str, Any]] = []
@@ -119,94 +119,109 @@ class PostalResolver:
         if not candidates:
             return {
                 "best": None,
+                "user_entered_address": raw_address,
                 "parsed": parsed,
-                "trace": trace + ["No matching postal office found in index."]
+                "trace": trace + ["No matching postal office found in directory."]
             }
 
-        # 3. Fast pre-scoring to narrow down to top candidates before geological resolution
-        raw_lower = raw_address.lower()
+        # 3. Calculate Geodesic Distance for candidate post offices using geopy
+        # Pure physical proximity: NO bias towards Head Post Office!
+        # Small branch offices (B.O), sub offices (S.O), and head offices (H.O) are treated equally.
         block_or_sec = parsed["block_or_sector"]
         roman = parsed["roman_numeral"]
 
-        pre_scored: List[Tuple[float, Dict[str, Any], List[str]]] = []
+        # Limit candidates to a reasonable size if large (prioritizing token match)
+        if len(candidates) > 15:
+            ranked_candidates = []
+            for c in candidates:
+                txt_score = 0.0
+                c_name = c["office"].lower()
+                c_toks = set(re.split(r'[^a-z0-9]+', c_name))
+                matches = [t for t in parsed["tokens"] if t in c_toks and len(t) > 2]
+                txt_score += len(matches) * 1.0
+                if roman and (f" {roman.lower()} " in f" {c_name} " or c_name.endswith(f" {roman.lower()}")):
+                    txt_score += 3.0
+                if block_or_sec and any(tok in c_name for tok in block_or_sec.lower().split()):
+                    txt_score += 2.0
+                ranked_candidates.append((txt_score, c))
+            ranked_candidates.sort(key=lambda x: x[0], reverse=True)
+            candidate_subset = [c for _, c in ranked_candidates[:12]]
+        else:
+            candidate_subset = candidates
 
-        for c in candidates:
-            score = 0.50
-            reasons = []
-            office_name = c["office"].lower()
-            office_tokens = set(re.split(r'[^a-z0-9]+', office_name))
+        evaluated_offices: List[Tuple[float, float, Dict[str, Any], Tuple[float, float], List[str]]] = []
 
-            if matched_stage == "exact_pin":
-                score += 0.35
-                reasons.append("Exact PIN code match")
-            elif matched_stage == "prefix_pin":
-                score += 0.25
-                reasons.append(f"Prefix {parsed['partial_pincode']}* match")
-
-            # Block / Sub-locality match
-            if roman and (f" {roman.lower()} " in f" {office_name} " or office_name.endswith(f" {roman.lower()}")):
-                score += 0.35
-                reasons.append(f"Block numeral '{roman}' in office name")
-            elif block_or_sec and any(tok in office_name for tok in block_or_sec.lower().split()):
-                score += 0.25
-                reasons.append(f"Sector/block token '{block_or_sec}'")
-
-            # Token overlap
-            matching_tokens = [tok for tok in parsed["tokens"] if tok in office_tokens and len(tok) > 2]
-            if matching_tokens:
-                score += min(0.20, len(matching_tokens) * 0.08)
-                reasons.append(f"Locality match: {', '.join(matching_tokens)}")
-
-            # Head office / Central delivery boost
-            if c["type"] == "Head Post Office (H.O)" or "H O" in c["office"] or "Central" in c["office"]:
-                score += 0.05
-
-            if "anu" in raw_lower and ("govt degree" in office_name or "hamirpur" in office_name):
-                score += 0.15
-            if "gandhi" in raw_lower and "ludhiana" in raw_lower and ("h o" in office_name or "ludhiana" == office_name):
-                score += 0.10
-
-            pre_scored.append((score, c, reasons))
-
-        # Sort pre-scored candidates and take top 6 for precise geopy geodesic distance calculation
-        pre_scored.sort(key=lambda x: x[0], reverse=True)
-        top_candidates = pre_scored[:6]
-
-        # 4. Resolve exact coordinates and geodesic distance for top candidates
-        geodesic_scored: List[Tuple[float, Dict[str, Any], Tuple[float, float], Optional[float], List[str]]] = []
-
-        for p_score, c, reasons in top_candidates:
+        for c in candidate_subset:
+            office_name = c["office"]
+            c_name_lower = office_name.lower()
             po_coords = self.geocoder.geocode_post_office(
-                c["office"], c["district"], c["state"], c["pincode"]
+                office_name, c["district"], c["state"], c["pincode"]
             )
-            d_km = None
-            final_score = p_score
+
+            # Calculate geodesic distance
+            d_km = 9999.0
+            reasons = []
             if user_coords:
                 d_km = self.geocoder.calculate_geodesic_distance(user_coords, po_coords)
-                if d_km <= 1.0:
-                    final_score += 0.25
-                    reasons.append(f"Geologically closest ({d_km} km away)")
-                elif d_km <= 3.0:
-                    final_score += 0.15
-                    reasons.append(f"Near vicinity ({d_km} km away)")
-                elif d_km <= 6.0:
-                    final_score += 0.08
-                elif d_km > 15.0:
-                    final_score -= 0.10
+                reasons.append(f"Geodesic distance: {d_km} km ({int(d_km * 1000)} meters)")
+            else:
+                reasons.append("Exact geographic beat")
 
-            geodesic_scored.append((final_score, c, po_coords, d_km, reasons))
+            # Secondary score for tie-breaking when distances are virtually identical (within 100 meters)
+            tie_breaker = 0.0
+            if matched_stage == "exact_pin":
+                tie_breaker += 1.0
+                reasons.append("Exact PIN beat")
 
-        # Sort by final score & shortest distance
-        geodesic_scored.sort(key=lambda x: (x[0], -x[3] if x[3] is not None else 0), reverse=True)
+            if roman and (f" {roman.lower()} " in f" {c_name_lower} " or c_name_lower.endswith(f" {roman.lower()}")):
+                tie_breaker += 2.0
+                reasons.append(f"Matched block numeral '{roman}'")
+            elif block_or_sec and any(tok in c_name_lower for tok in block_or_sec.lower().split()):
+                tie_breaker += 1.5
+                reasons.append(f"Matched sector/block token '{block_or_sec}'")
 
-        raw_best_score, best_office, best_coords, best_distance, best_reasons = geodesic_scored[0]
-        final_confidence = min(0.99, max(0.40, raw_best_score))
+            c_toks = set(re.split(r'[^a-z0-9]+', c_name_lower))
+            matches = [t for t in parsed["tokens"] if t in c_toks and len(t) > 2]
+            if matches:
+                tie_breaker += len(matches) * 0.5
+                reasons.append(f"Locality: {', '.join(matches)}")
 
-        trace.append(f"Identified nearest serviceable post office: {best_office['office']} (PIN: {best_office['pincode']}).")
-        if best_distance is not None:
-            trace.append(f"Geodesic distance to post office: {best_distance} km.")
+            # Effective distance: exact block/sector matches within same neighborhood beat get a slight 250m beat alignment
+            effective_dist = d_km
+            if (roman and f" {roman.lower()} " in f" {c_name_lower} ") or (block_or_sec and any(tok in c_name_lower for tok in block_or_sec.lower().split())):
+                effective_dist = max(0.0, d_km - 0.30)
+                reasons.append("Block/sector beat alignment")
+
+            # Add to list: (effective_dist, d_km, -tie_breaker, candidate, po_coords, reasons)
+            evaluated_offices.append((effective_dist, d_km, -tie_breaker, c, po_coords, reasons))
+
+        # SORTING: Strictly by MINIMUM EFFECTIVE DISTANCE as primary key!
+        # Smallest physical proximity wins, irrespective of whether it's a head, sub, or branch office!
+        evaluated_offices.sort(key=lambda x: (x[0], x[1], x[2]))
+
+        _, best_distance, _, best_office, best_coords, best_reasons = evaluated_offices[0]
+        actual_distance = best_distance if best_distance < 9990.0 else None
+
+        # Compute proximity confidence based on actual physical distance
+        if actual_distance is not None:
+            if actual_distance <= 1.0:
+                final_confidence = 0.99
+            elif actual_distance <= 3.0:
+                final_confidence = 0.95
+            elif actual_distance <= 7.0:
+                final_confidence = 0.88
+            elif actual_distance <= 15.0:
+                final_confidence = 0.80
+            else:
+                final_confidence = 0.70
+        else:
+            final_confidence = 0.85
+
+        trace.append(f"Identified nearest post office: {best_office['office']} (PIN: {best_office['pincode']}).")
+        if actual_distance is not None:
+            trace.append(f"Physical distance from address: {actual_distance} km ({int(actual_distance * 1000)} meters).")
         if best_reasons:
-            trace.append(f"Criteria: {'; '.join(best_reasons)}.")
+            trace.append(f"Proximity details: {'; '.join(best_reasons)}.")
 
         # Detailed Post Office attributes
         state_name = best_office["state"]
@@ -234,20 +249,22 @@ class PostalResolver:
             "timings": "Mon - Sat: 9:00 AM - 5:00 PM (Public Counters: 9:30 AM - 3:30 PM)",
             "lat": best_coords[0],
             "lon": best_coords[1],
-            "distance_km": best_distance,
+            "distance_km": actual_distance,
+            "distance_meters": int(actual_distance * 1000) if actual_distance is not None else None,
             "directions_url": (
                 f"https://www.google.com/maps/dir/?api=1&origin={user_coords[0]},{user_coords[1]}&destination={best_coords[0]},{best_coords[1]}"
                 if user_coords else None
             )
         }
 
-        # Alternatives
+        # Alternative nearby post offices
         alternatives = []
-        for alt_score, alt_rec, alt_coords, alt_dist, _ in geodesic_scored[1:4]:
+        for _, alt_dist, _, alt_rec, alt_coords, _ in evaluated_offices[1:4]:
+            alt_d = alt_dist if alt_dist < 9990.0 else None
             alternatives.append({
                 "office": f"{alt_rec['office']} ({alt_rec['pincode']})",
-                "score": f"{min(98, round(alt_score * 100))}%",
-                "distance_km": alt_dist,
+                "score": f"{alt_d} km away" if alt_d is not None else "Nearby",
+                "distance_km": alt_d,
                 "lat": alt_coords[0],
                 "lon": alt_coords[1]
             })
@@ -263,8 +280,9 @@ class PostalResolver:
 
         return {
             "best": best_payload,
+            "user_entered_address": raw_address,
             "confidence": round(final_confidence, 2),
-            "distance_km": best_distance,
+            "distance_km": actual_distance,
             "parsed": {
                 "cleaned_address": parsed["cleaned_address"],
                 "geocoded_address": user_formatted_address
