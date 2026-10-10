@@ -1,146 +1,786 @@
 {
-  "flat4bnrbigbazaroppsbikoramangla5thblkblr560034": [
-    12.9345,
-    77.6225
-  ],
-  "koramangalavblockbangalore560034": [
-    12.9352,
-    77.6248
-  ],
-  "koramangalabangalore560034": [
-    12.9348,
-    77.62
-  ],
-  "koramangalaiblockbangalore560034": [
-    12.9288,
-    77.629
-  ],
-  "hno12gandhinagarnearhanumanmandirludhianapunjab": [
-    30.9126,
-    75.853
-  ],
-  "ludhianaholudhianapunjab141001": [
-    30.9084,
-    75.8576
-  ],
-  "ludhianaludhianapunjab141001": [
-    30.9084,
-    75.8576
-  ],
-  "nithamirpuranuhamirpurhimachal": [
-    31.7084,
-    76.5273
-  ],
-  "hamirpurhamirpurhimachalpradesh177001": [
-    31.6862,
-    76.5213
-  ],
-  "govtdegreeclghamirpurhamirpurhimachalpradesh177005": [
-    31.697,
-    76.522
-  ],
-  "gandhichwkhamirpurhamirpurhimachalpradesh177001": [
-    31.6885,
-    76.5235
-  ],
-  "sector62noidaup20130": [
-    28.6258,
-    77.3649
-  ],
-  "noidacomplexgautambuddhanagaruttarpradesh201301": [
-    28.583,
-    77.3195
-  ],
-  "estategautambuddhanagaruttarpradesh201303": [
-    28.572,
-    77.331
-  ],
-  "koramangalabangalore": [
-    12.9357,
-    77.624
-  ],
-  "gandhinagarludhiana": [
-    30.9126,
-    75.853
-  ],
-  "anuhamirpur": [
-    31.698,
-    76.524
-  ],
-  "sector62noida": [
-    28.6258,
-    77.3649
-  ],
-  "koramangalabangalorekarnataka560034": [
-    12.93776,
-    77.62398
-  ],
-  "koramangalaiblockbangalorekarnataka560034": [
-    12.93667,
-    77.6229
-  ],
-  "koramangalavblockbangalorekarnataka560034": [
-    12.9374,
-    77.62701
-  ],
-  "ludhianaludhianapunjab141003": [
-    30.89231,
-    75.86722
-  ],
-  "ludhianaludhianapunjab141005": [
-    30.80816,
-    75.47637
-  ],
-  "hindonnagarghaziabaduttarpradesh201302": [
-    28.70435,
-    77.36481
-  ],
-  "bangalorebazarbangalorekarnataka560001": [
-    12.95331,
-    77.56767
-  ],
-  "bangalorebangalorekarnataka560002": [
-    12.96061,
-    77.58354
-  ],
-  "bangalorebangalorekarnataka560044": [
-    12.97679,
-    77.59008
-  ],
-  "bilaspurghumarwin": [
-    31.44276,
-    76.70703
-  ],
-  "nalandacollegenalandabihar803101": [
-    25.20581,
-    85.53153
-  ],
-  "hamirpur": [
-    25.75,
-    80.0
-  ],
-  "ghumarwinbilaspurhimachalpradesh174021": [
-    31.46681,
-    76.70392
-  ],
-  "ghumarwin": [
-    31.46681,
-    76.70392
-  ],
-  "dagshaisolanhimachalpradesh173210": [
-    30.86843,
-    77.06515
-  ],
-  "dagshai": [
-    30.86843,
-    77.06515
-  ],
-  "subathusolanhimachalpradesh173206": [
-    30.97561,
-    76.9898
-  ],
-  "subathu": [
-    30.97561,
-    76.9898
-  ]
+  "flat4bnrbigbazaroppsbikoramangla5thblkblr560034": {
+    "lat": 12.9345,
+    "lon": 77.6225
+  },
+  "koramangalavblockbangalore560034": {
+    "lat": 12.9352,
+    "lon": 77.6248
+  },
+  "koramangalabangalore560034": {
+    "lat": 12.9348,
+    "lon": 77.62
+  },
+  "koramangalaiblockbangalore560034": {
+    "lat": 12.9288,
+    "lon": 77.629
+  },
+  "hno12gandhinagarnearhanumanmandirludhianapunjab": {
+    "lat": 30.9126,
+    "lon": 75.853
+  },
+  "ludhianaholudhianapunjab141001": {
+    "lat": 30.9084,
+    "lon": 75.8576
+  },
+  "ludhianaludhianapunjab141001": {
+    "lat": 30.9084,
+    "lon": 75.8576
+  },
+  "nithamirpuranuhamirpurhimachal": {
+    "lat": 31.7084,
+    "lon": 76.5273
+  },
+  "hamirpurhamirpurhimachalpradesh177001": {
+    "lat": 31.6862,
+    "lon": 76.5213
+  },
+  "govtdegreeclghamirpurhamirpurhimachalpradesh177005": {
+    "lat": 31.697,
+    "lon": 76.522
+  },
+  "gandhichwkhamirpurhamirpurhimachalpradesh177001": {
+    "lat": 31.6885,
+    "lon": 76.5235
+  },
+  "sector62noidaup20130": {
+    "lat": 28.6258,
+    "lon": 77.3649
+  },
+  "noidacomplexgautambuddhanagaruttarpradesh201301": {
+    "lat": 28.583,
+    "lon": 77.3195
+  },
+  "estategautambuddhanagaruttarpradesh201303": {
+    "lat": 28.572,
+    "lon": 77.331
+  },
+  "koramangalabangalore": {
+    "lat": 12.9357,
+    "lon": 77.624
+  },
+  "gandhinagarludhiana": {
+    "lat": 30.9126,
+    "lon": 75.853
+  },
+  "anuhamirpur": {
+    "lat": 31.698,
+    "lon": 76.524
+  },
+  "sector62noida": {
+    "lat": 28.6258,
+    "lon": 77.3649
+  },
+  "koramangalabangalorekarnataka560034": {
+    "lat": 12.93776,
+    "lon": 77.62398
+  },
+  "koramangalaiblockbangalorekarnataka560034": {
+    "lat": 12.93667,
+    "lon": 77.6229
+  },
+  "koramangalavblockbangalorekarnataka560034": {
+    "lat": 12.9374,
+    "lon": 77.62701
+  },
+  "ludhianaludhianapunjab141003": {
+    "lat": 30.89231,
+    "lon": 75.86722
+  },
+  "ludhianaludhianapunjab141005": {
+    "lat": 30.80816,
+    "lon": 75.47637
+  },
+  "hindonnagarghaziabaduttarpradesh201302": {
+    "lat": 28.70435,
+    "lon": 77.36481
+  },
+  "bangalorebazarbangalorekarnataka560001": {
+    "lat": 12.95331,
+    "lon": 77.56767
+  },
+  "bangalorebangalorekarnataka560002": {
+    "lat": 12.96061,
+    "lon": 77.58354
+  },
+  "bangalorebangalorekarnataka560044": {
+    "lat": 12.97679,
+    "lon": 77.59008
+  },
+  "bilaspurghumarwin": {
+    "lat": 31.44276,
+    "lon": 76.70703
+  },
+  "nalandacollegenalandabihar803101": {
+    "lat": 25.20581,
+    "lon": 85.53153
+  },
+  "hamirpur": {
+    "lat": 25.75,
+    "lon": 80.0
+  },
+  "ghumarwinbilaspurhimachalpradesh174021": {
+    "lat": 31.46681,
+    "lon": 76.70392
+  },
+  "ghumarwin": {
+    "lat": 31.46681,
+    "lon": 76.70392
+  },
+  "dagshaisolanhimachalpradesh173210": {
+    "lat": 30.86843,
+    "lon": 77.06515
+  },
+  "dagshai": {
+    "lat": 30.86843,
+    "lon": 77.06515
+  },
+  "subathusolanhimachalpradesh173206": {
+    "lat": 30.97561,
+    "lon": 76.9898
+  },
+  "subathu": {
+    "lat": 30.97561,
+    "lon": 76.9898
+  },
+  "nithamirpur": {
+    "lat": 31.70746,
+    "lon": 76.52633
+  },
+  "councilhousestreetcalcuttawestbengal700001": {
+    "lat": 22.57049,
+    "lon": 88.3475
+  },
+  "user_flat4bnrbigbazaroppsbikoramangla5thblkblr560034": {
+    "lat": 12.9281,
+    "lon": 77.637,
+    "formatted_address": "560034, Kormangala 1st Blok, Koramangala, Bengaluru Sauth, Bengaluru Arban, Karnaatak",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=12.9281,77.637",
+    "extracted_pincode": "560034"
+  },
+  "po_koramangalabangalore560034": {
+    "lat": 12.927266,
+    "lon": 77.626606,
+    "address": "Post Office Koramangala"
+  },
+  "po_koramangalaiblockbangalore560034": {
+    "lat": 12.921547,
+    "lon": 77.631714,
+    "address": "Kormangala I Block Branch Post Office"
+  },
+  "po_koramangalavblockbangalore560034": {
+    "lat": 12.927266,
+    "lon": 77.626606,
+    "address": "Post Office Koramangala"
+  },
+  "po_koramangalaviiblockbangalore560034": {
+    "lat": 12.927266,
+    "lon": 77.626606,
+    "address": "Post Office Koramangala"
+  },
+  "po_stjohnsmedicalcollegebangalore560034": {
+    "lat": 12.929631,
+    "lon": 77.621417,
+    "address": "St Johns Medical College Branch Post Office"
+  },
+  "user_hno12gandhinagarnearhanumanmandirludhianapunjab": {
+    "lat": 30.907726,
+    "lon": 75.846418,
+    "formatted_address": "Gandhi Nagar, Civil Lines, Gandhi Nagar, Ludhiana, Punjab",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=30.9077265,75.8464175"
+  },
+  "po_ascollegekhannaludhiana141402": {
+    "lat": 30.693612,
+    "lon": 76.242206,
+    "address": "141402, Railway Colony, Punjab"
+  },
+  "po_abdullapurbastiludhiana141003": {
+    "lat": 30.892228,
+    "lon": 75.850153,
+    "address": "Abdullahpur Basti Post Office"
+  },
+  "po_ayalikalanludhiana142027": {
+    "lat": 30.902378,
+    "lon": 75.76205,
+    "address": "142027, Jhamat, Punjab"
+  },
+  "po_baddowailudhiana142021": {
+    "lat": 30.862244,
+    "lon": 75.746433,
+    "address": "Baddowal Branch Post Office"
+  },
+  "po_baghkhazanchianludhiana141008": {
+    "lat": 30.916417,
+    "lon": 75.761901,
+    "address": "141008, Jhamat, Punjab"
+  },
+  "po_bahlolpurludhiana141121": {
+    "lat": 30.899798,
+    "lon": 76.310885,
+    "address": "Behlolpur Sub Post Office"
+  },
+  "po_bainiramstreetludhiana141008": {
+    "lat": 30.916417,
+    "lon": 75.761901,
+    "address": "141008, Jhamat, Punjab"
+  },
+  "po_bassianludhiana142032": {
+    "lat": 30.688614,
+    "lon": 75.534856,
+    "address": "Binjal Branch Post Office"
+  },
+  "po_bharatnagarludhiana141001": {
+    "lat": 30.90668,
+    "lon": 75.847561,
+    "address": "Garrison Engineer"
+  },
+  "po_brahampuriludhianaludhiana141008": {
+    "lat": 30.9865,
+    "lon": 75.8316,
+    "address": "141008, Jamalpur Leli, Ludhiana East, Ludhiana, Punjab"
+  },
+  "po_cmcludhianaludhiana141008": {
+    "lat": 30.9101,
+    "lon": 75.8626,
+    "address": "141008, CMC Campus, Ludhiana, Punjab"
+  },
+  "po_chandernagarludhiana141001": {
+    "lat": 30.9355,
+    "lon": 75.8155,
+    "address": "141001, Chander Nagar, Haibowal Kalan, Jai Singh Nagar, Ludhiana, Punjab"
+  },
+  "po_civillinesludhiana141001": {
+    "lat": 30.91639,
+    "lon": 75.845078,
+    "address": "Post Office, Civil Lines"
+  },
+  "po_colonyroparludhiana141002": {
+    "lat": 30.892499,
+    "lon": 75.85758,
+    "address": "Post Office Labour Colony"
+  },
+  "po_daheruludhiana141412": {
+    "lat": 30.746753,
+    "lon": 76.149205,
+    "address": "Daheru Branch Post Office"
+  },
+  "po_dakhaludhiana141102": {
+    "lat": 30.858275,
+    "lon": 75.691779,
+    "address": "Dakha Branch Post Office"
+  },
+  "po_dhamotludhiana141413": {
+    "lat": 30.688122,
+    "lon": 76.030071,
+    "address": "Dhamote Branch Post Office"
+  },
+  "po_dorahaludhiana141421": {
+    "lat": 30.793355,
+    "lon": 76.026555,
+    "address": "Post Office, Doraha"
+  },
+  "po_durgapuriludhiana141001": {
+    "lat": 30.922271,
+    "lon": 75.815514,
+    "address": "Durgapuri Sub Post Office"
+  },
+  "po_frhlonludhiana141118": {
+    "lat": 30.736779,
+    "lon": 75.885261,
+    "address": "141118, Ludhiana East, Punjab"
+  },
+  "po_gmkhannaludhiana141401": {
+    "lat": 30.684071,
+    "lon": 76.291734,
+    "address": "141401, Khanna, Punjab"
+  },
+  "po_gtroadludhianaludhiana141003": {
+    "lat": 30.908415,
+    "lon": 75.851957,
+    "address": "Grand Trunk Road, Field Gunj, Ludhiana, Punjab, 141003"
+  },
+  "po_galibkalanludhiana142036": {
+    "lat": 30.834928,
+    "lon": 75.401591,
+    "address": "Galib Kalan Branch Post Office"
+  },
+  "po_ghawaddiludhiana141206": {
+    "lat": 30.77803,
+    "lon": 75.886398,
+    "address": "Post Office: Ghawaddi"
+  },
+  "po_ghulalludhiana141124": {
+    "lat": 30.843844,
+    "lon": 76.127857,
+    "address": "Ghulal Branch Post Office"
+  },
+  "po_ghungranaludhiana141204": {
+    "lat": 30.715744,
+    "lon": 75.816272,
+    "address": "Ghungrana Branch Post Office"
+  },
+  "po_ghuranikalanludhiana141419": {
+    "lat": 30.727024,
+    "lon": 75.983907,
+    "address": "Ghudani Kalan Branch Post Office"
+  },
+  "po_gillludhiana141116": {
+    "lat": 30.845263,
+    "lon": 75.862658,
+    "address": "Village Gill Post Office-141116"
+  },
+  "po_girsonknittingworksludhiana141008": {
+    "lat": 30.916417,
+    "lon": 75.761901,
+    "address": "141008, Jhamat, Punjab"
+  },
+  "po_gujarwalludhiana141202": {
+    "lat": 30.746691,
+    "lon": 75.751756,
+    "address": "Gujjarwal Branch Post Office"
+  },
+  "po_gurdevnagarludhiana141001": {
+    "lat": 30.895359,
+    "lon": 75.827521,
+    "address": "Gurdev Nagar Road, Gurdev Nagar, Ludhiana, Punjab, 141001"
+  },
+  "po_gurunanakengineeringcollegeludhiana141006": {
+    "lat": 30.860666,
+    "lon": 75.859781,
+    "address": "Guru Nanak Dev Engineering College"
+  },
+  "po_haliwaraadludhiana141106": {
+    "lat": 30.759281,
+    "lon": 75.650666,
+    "address": "Halwara Ad Branch Post Office"
+  },
+  "po_halwaraludhiana141107": {
+    "lat": 30.725166,
+    "lon": 75.641037,
+    "address": "Sub Post Office Halwara"
+  },
+  "po_hathurludhiana142031": {
+    "lat": 30.601589,
+    "lon": 75.429249,
+    "address": "Hathur Post Office"
+  },
+  "po_ikbalganjludhianaludhiana141008": {
+    "lat": 30.912504,
+    "lon": 75.858672,
+    "address": "Iqbal Gunj Road, Mochpura, Ludhiana, Punjab, 141008"
+  },
+  "po_industrialcolonyludhianaludhiana141003": {
+    "lat": 30.897,
+    "lon": 75.8694,
+    "address": "India Post Industrial Colony"
+  },
+  "po_industrialestateludhiana141003": {
+    "lat": 30.893517,
+    "lon": 75.868104,
+    "address": "Industrial Estate, Niran Kari Nagar, Ludhiana, Punjab"
+  },
+  "po_isruludhiana141414": {
+    "lat": 30.669413,
+    "lon": 76.110342,
+    "address": "Issru Branch Post Office"
+  },
+  "po_jagraoncityludhiana142026": {
+    "lat": 30.785108,
+    "lon": 75.473183,
+    "address": "Jagraon City Branch Post Office"
+  },
+  "po_jagraonholudhiana142026": {
+    "lat": 30.793537,
+    "lon": 75.474263,
+    "address": "Post Office Jagraon"
+  },
+  "po_jagraontehsilludhiana142026": {
+    "lat": 30.809154,
+    "lon": 75.476052,
+    "address": "Post Office, Jagraon"
+  },
+  "po_jailrdludhianaludhiana141008": {
+    "lat": 30.907872,
+    "lon": 75.862449,
+    "address": "Jail Road, CMC Campus, Mohan Singh Nagar, Ludhiana, Punjab, 141008"
+  },
+  "po_jalpatraimarketludhiana141008": {
+    "lat": 30.916417,
+    "lon": 75.761901,
+    "address": "141008, Jhamat, Punjab"
+  },
+  "po_jamalpurawanaludhiana141111": {
+    "lat": 30.902335,
+    "lon": 75.904113,
+    "address": "Jamalpur Post Office"
+  },
+  "po_jantanagarludhiana141003": {
+    "lat": 30.880895,
+    "lon": 75.859547,
+    "address": "Janta Nagar Post Office"
+  },
+  "po_jargludhiana141415": {
+    "lat": 30.6134,
+    "lon": 76.0714,
+    "address": "Sub Post Office Jarg"
+  },
+  "po_jaspalbangarludhiana141122": {
+    "lat": 30.839235,
+    "lon": 75.903227,
+    "address": "Jaspal Bangar Branch Post Office"
+  },
+  "po_jodhanludhiana142029": {
+    "lat": 30.794371,
+    "lon": 75.757098,
+    "address": "Jodhan Branch Post Office"
+  },
+  "po_kcgssudharludhiana141104": {
+    "lat": 30.769625,
+    "lon": 75.649608,
+    "address": "Kcg Sudhar Branch Post Office"
+  },
+  "po_kamalpurludhiana142030": {
+    "lat": 30.730165,
+    "lon": 75.54351,
+    "address": "Chajjawal Branch Post Office"
+  },
+  "po_katnikalanludhiana141113": {
+    "lat": 30.845232,
+    "lon": 76.079568,
+    "address": "Katani Kalan Branch Post Office"
+  },
+  "po_khamanokalanludhiana140801": {
+    "lat": 30.8075,
+    "lon": 75.4258,
+    "address": "Post Office"
+  },
+  "po_khannaholudhiana141401": {
+    "lat": 30.702958,
+    "lon": 76.224523,
+    "address": "Khanna Head Post Office"
+  },
+  "po_kidwainagarludhiana141008": {
+    "lat": 30.9042,
+    "lon": 75.8698,
+    "address": "141008, Kidwai Nagar, Janakpuri, Ludhiana, Punjab"
+  },
+  "po_kilaraipurludhiana141201": {
+    "lat": 30.762577,
+    "lon": 75.821226,
+    "address": "Kilarai Pur Branch Post Office"
+  },
+  "po_koharaludhiana141112": {
+    "lat": 30.867557,
+    "lon": 76.003505,
+    "address": "Kohara Sub Post Office"
+  },
+  "po_labourcolonyludhiana141003": {
+    "lat": 30.892499,
+    "lon": 75.85758,
+    "address": "Post Office Labour Colony"
+  },
+  "po_laltonkalanludhiana142022": {
+    "lat": 30.845504,
+    "lon": 75.776157,
+    "address": "Lalton Kalan Branch Post Office"
+  },
+  "po_latalaludhiana141205": {
+    "lat": 30.682468,
+    "lon": 75.750711,
+    "address": "Latala Branch Post Office"
+  },
+  "po_ludhianaludhiana141001": {
+    "lat": 30.911301,
+    "lon": 75.849601,
+    "address": "Post Office, Old Ludhiana"
+  },
+  "po_ludhianaludhiana141003": {
+    "lat": 30.8695,
+    "lon": 75.8838,
+    "address": "Post Office, Ludhiana"
+  },
+  "po_ludhianaludhiana141005": {
+    "lat": 30.8695,
+    "lon": 75.8838,
+    "address": "Post Office, Ludhiana"
+  },
+  "po_ludhianaludhiana141007": {
+    "lat": 30.977584,
+    "lon": 75.912454,
+    "address": "Mangat Branch Post Office"
+  },
+  "po_ludhianaludhiana141008": {
+    "lat": 30.916736,
+    "lon": 75.857624,
+    "address": "Post Office, Chaura Bazar"
+  },
+  "po_ludhianabusstandludhiana141001": {
+    "lat": 30.911301,
+    "lon": 75.849601,
+    "address": "Post Office, Old Ludhiana"
+  },
+  "po_ludhianacentralludhiana141008": {
+    "lat": 30.91833,
+    "lon": 75.847499,
+    "address": "Ludhiana Central Post Office"
+  },
+  "po_ludhianaholudhiana141001": {
+    "lat": 30.911301,
+    "lon": 75.849601,
+    "address": "Post Office, Old Ludhiana"
+  },
+  "po_ludhianakutcheryludhiana141001": {
+    "lat": 30.916344,
+    "lon": 75.845065,
+    "address": "Sub Post Office Ludhiana Kurtchery Ludhiana"
+  },
+  "po_machhiwaraludhiana141115": {
+    "lat": 30.914427,
+    "lon": 76.198902,
+    "address": "Post Office, Machhiwara"
+  },
+  "po_madhopuriludhianaludhiana141008": {
+    "lat": 30.918386,
+    "lon": 75.862336,
+    "address": "Sub Post Office"
+  },
+  "po_malaudhludhiana141119": {
+    "lat": 30.634388,
+    "lon": 75.9347,
+    "address": "Post Office Maloud"
+  },
+  "po_mallahludhiana142035": {
+    "lat": 30.684698,
+    "lon": 75.407411,
+    "address": "Mallah Branch Post Office"
+  },
+  "po_manludhiana142023": {
+    "lat": 30.7973,
+    "lon": 75.5896,
+    "address": "Post Office"
+  },
+  "po_manokeludhiana142034": {
+    "lat": 30.675396,
+    "lon": 75.456896,
+    "address": "Manuke Branch Post Office"
+  },
+  "po_millerganjludhiana141003": {
+    "lat": 30.8931,
+    "lon": 75.858177,
+    "address": "Post Office Bhaptiyahi"
+  },
+  "po_mohieludhiana141103": {
+    "lat": 30.806448,
+    "lon": 75.689503,
+    "address": "Mohie Branch Post Office"
+  },
+  "po_mullanpurmandiludhiana141101": {
+    "lat": 30.853487,
+    "lon": 75.660918,
+    "address": "Mullanpur Branch Post Office"
+  },
+  "po_naimandikhannaludhiana141401": {
+    "lat": 30.7143,
+    "lon": 76.232,
+    "address": "141401, Nandi Colony, Khanna, Ludhiana, Punjab"
+  },
+  "po_narangwalludhiana141203": {
+    "lat": 30.763513,
+    "lon": 75.774695,
+    "address": "Narangwal Kalan Branch Post Office"
+  },
+  "po_netajinagarludhiana141005": {
+    "lat": 30.935493,
+    "lon": 75.832431,
+    "address": "Neta Ji Nagar Post Office"
+  },
+  "po_ptcolonyludhianaludhiana141001": {
+    "lat": 30.910523,
+    "lon": 75.837992,
+    "address": "141001, Sheepshank Road, Punjab"
+  },
+  "po_paplinesludhiana141004": {
+    "lat": 30.900279,
+    "lon": 75.813329,
+    "address": "141004, Pau, Punjab"
+  },
+  "po_pauludhianaludhiana141004": {
+    "lat": 30.902347,
+    "lon": 75.814587,
+    "address": "Pau Branch Post Office"
+  },
+  "po_pakhowalludhiana141108": {
+    "lat": 30.706875,
+    "lon": 75.710557,
+    "address": "Pakhowal Branch Post Office"
+  },
+  "po_payalludhiana141416": {
+    "lat": 30.752717,
+    "lon": 76.07356,
+    "address": "Barmalipur Branch Post Office"
+  },
+  "po_rahawanludhiana141417": {
+    "lat": 30.736583,
+    "lon": 76.244213,
+    "address": "Post Office"
+  },
+  "po_raikotludhiana141109": {
+    "lat": 30.61398,
+    "lon": 75.57046,
+    "address": "Post Office"
+  },
+  "po_rampurludhiana141418": {
+    "lat": 30.823991,
+    "lon": 76.049812,
+    "address": "Rampur Branch Post Office"
+  },
+  "po_salemtabriludhiana141005": {
+    "lat": 30.936708,
+    "lon": 75.832444,
+    "address": "Salem Tabri, Netaji Colony, Ludhiana, Punjab"
+  },
+  "po_samralaludhiana141114": {
+    "lat": 30.8352,
+    "lon": 76.1945,
+    "address": "Post Office Samrala"
+  },
+  "po_samralacityludhiana141114": {
+    "lat": 30.8352,
+    "lon": 76.1945,
+    "address": "Post Office Samrala"
+  },
+  "po_samralardludhianaludhiana141008": {
+    "lat": 30.916417,
+    "lon": 75.761901,
+    "address": "141008, Jhamat, Punjab"
+  },
+  "po_sanehwalludhiana141120": {
+    "lat": 30.837903,
+    "lon": 75.982597,
+    "address": "Sanehwal Sub Post Office"
+  },
+  "po_sarabaludhiana141105": {
+    "lat": 30.752613,
+    "lon": 75.702429,
+    "address": "Sarabha Branch Post Office"
+  },
+  "po_satsangrdludhianaludhiana141001": {
+    "lat": 30.910523,
+    "lon": 75.837992,
+    "address": "141001, Sheepshank Road, Punjab"
+  },
+  "po_sidhpeethludhianaludhiana141001": {
+    "lat": 30.910523,
+    "lon": 75.837992,
+    "address": "141001, Sheepshank Road, Punjab"
+  },
+  "po_sidhwanbetludhiana142033": {
+    "lat": 30.923034,
+    "lon": 75.428437,
+    "address": "Malsian Bajan Branch Post Office"
+  },
+  "po_sidhwankhurdludhiana142024": {
+    "lat": 30.829541,
+    "lon": 75.552786,
+    "address": "Sidhwan Khurd Branch Post Office"
+  },
+  "po_siharludhiana141117": {
+    "lat": 30.692225,
+    "lon": 75.916113,
+    "address": "Sihar Sub Post Office"
+  },
+  "po_sowaddiludhiana142025": {
+    "lat": 30.868105,
+    "lon": 75.584239,
+    "address": "Sowaddi Branch Post Office"
+  },
+  "user_nithamirpuranuhamirpurhimachal": {
+    "lat": 31.686401,
+    "lon": 76.521395,
+    "formatted_address": "Hamirpur, Himachal Pradesh",
+    "provider": "geopy",
+    "maps_url": "https://www.google.com/maps?q=31.6864006,76.5213953"
+  },
+  "po_awahdevihamirpur177035": {
+    "lat": 31.711091,
+    "lon": 76.673823,
+    "address": "Post Office Awah Devi"
+  },
+  "po_bagwarahamirpur177021": {
+    "lat": 31.709434,
+    "lon": 76.679393,
+    "address": "177021, Bhoranj, Himachal Pradesh"
+  },
+  "po_bahimahamirpur174309": {
+    "lat": 31.515037,
+    "lon": 76.498312,
+    "address": "174309, Barsar, Himachal Pradesh"
+  },
+  "po_banihamirpur174304": {
+    "lat": 31.543653,
+    "lon": 76.477825,
+    "address": "Bani Post Office"
+  },
+  "po_bankhandihamirpur177114": {
+    "lat": 31.960035,
+    "lon": 76.202268,
+    "address": "Bankhandi Branch Post Office"
+  },
+  "po_barahamirpur177044": {
+    "lat": 31.772735,
+    "lon": 76.396073,
+    "address": "Bara Dt Hamirpur Hp Branch Post Office"
+  },
+  "po_barialhamirpur176035": {
+    "lat": 31.709693,
+    "lon": 76.527364,
+    "address": "Branch Post Office"
+  },
+  "po_barmanahamirpur177048": {
+    "lat": 31.729542,
+    "lon": 76.439763,
+    "address": "Sub Post Office"
+  },
+  "po_behnihamirpur177007": {
+    "lat": 31.749261,
+    "lon": 76.478209,
+    "address": "177007, Tira Sujanpur, Himachal Pradesh"
+  },
+  "po_bhalethhamirpur176108": {
+    "lat": 31.814886,
+    "lon": 76.478421,
+    "address": "Post Office Bhaleth"
+  },
+  "po_bharerihamirpur177024": {
+    "lat": 31.656261,
+    "lon": 76.692142,
+    "address": "177024, Bhoranj, Himachal Pradesh"
+  },
+  "po_bhoranjhamirpur176045": {
+    "lat": 31.649193,
+    "lon": 76.647229,
+    "address": "Post Office Boranj"
+  },
+  "po_bhotahamirpur176041": {
+    "lat": 31.607662,
+    "lon": 76.561785,
+    "address": "Post Office, Bhota"
+  },
+  "po_bijharihamirpur176040": {
+    "lat": 31.526981,
+    "lon": 76.539168,
+    "address": "Bijhari Sub Post Office"
+  },
+  "po_chakmouhamirpur176039": {
+    "lat": 31.455012,
+    "lon": 76.542512,
+    "address": "176039, Dhatwal, Himachal Pradesh"
+  },
+  "po_chalelehamirpur177118": {
+    "lat": 31.639433,
+    "lon": 76.659461,
+    "address": "177118, Bhoranj, Himachal Pradesh"
+  }
 }

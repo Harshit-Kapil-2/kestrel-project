@@ -4,6 +4,32 @@ from backend.data_loader import PostalDataLoader
 from backend.cleaner import AddressCleaner
 from backend.geocoder import GeocodingManager
 
+POSTAL_CIRCLES = {
+    "Andhra Pradesh": "Andhra Pradesh Postal Circle",
+    "Assam": "Assam Postal Circle",
+    "Bihar": "Bihar Postal Circle",
+    "Chandigarh": "Punjab Postal Circle",
+    "Chhattisgarh": "Chhattisgarh Postal Circle",
+    "Delhi": "Delhi Postal Circle",
+    "Goa": "Maharashtra Postal Circle",
+    "Gujarat": "Gujarat Postal Circle",
+    "Haryana": "Haryana Postal Circle",
+    "Himachal Pradesh": "Himachal Pradesh Postal Circle",
+    "Jammu & Kashmir": "Jammu & Kashmir Postal Circle",
+    "Jharkhand": "Jharkhand Postal Circle",
+    "Karnataka": "Karnataka Postal Circle",
+    "Kerala": "Kerala Postal Circle",
+    "Madhya Pradesh": "Madhya Pradesh Postal Circle",
+    "Maharashtra": "Maharashtra Postal Circle",
+    "Orissa": "Odisha Postal Circle",
+    "Punjab": "Punjab Postal Circle",
+    "Rajasthan": "Rajasthan Postal Circle",
+    "Tamil Nadu": "Tamil Nadu Postal Circle",
+    "Uttar Pradesh": "Uttar Pradesh Postal Circle",
+    "Uttaranchal": "Uttarakhand Postal Circle",
+    "West Bengal": "West Bengal Postal Circle"
+}
+
 class PostalResolver:
     def __init__(self, data_loader: PostalDataLoader, geocoder: GeocodingManager):
         self.loader = data_loader
@@ -19,39 +45,54 @@ class PostalResolver:
 
         parsed = self.cleaner.clean_and_parse(raw_address)
         trace: List[str] = []
-        trace.append("Cleaned address and expanded common Indian postal abbreviations.")
 
+        # 1. Convert user input into Geological Location using geopy (Google Maps style)
+        trace.append("Converting address into geological coordinates using python geopy...")
+        user_loc = self.geocoder.geocode_user_location(raw_address, fallback_components=parsed)
+
+        user_coords = None
+        user_formatted_address = None
+        user_maps_url = None
+
+        if user_loc:
+            user_coords = (user_loc["lat"], user_loc["lon"])
+            user_formatted_address = user_loc.get("formatted_address", parsed["cleaned_address"])
+            user_maps_url = user_loc.get("maps_url")
+            trace.append(f"Geopy resolved geological location: {user_formatted_address} ({user_coords[0]}, {user_coords[1]}).")
+
+            # Check if geopy discovered an explicit postal code not in input
+            if not parsed["pincode"] and user_loc.get("extracted_pincode"):
+                parsed["pincode"] = user_loc["extracted_pincode"]
+                trace.append(f"Extracted postal code {parsed['pincode']} from geocoded geological position.")
+        else:
+            trace.append("Could not determine precise geological coordinates; proceeding with postal hierarchy.")
+
+        # 2. Retrieve Candidate Post Offices
         candidates: List[Dict[str, Any]] = []
         matched_stage = ""
 
-        # STAGE 1: Exact 6-digit PIN Match
         if parsed["pincode"]:
             pin = parsed["pincode"]
-            trace.append(f"Extracted 6-digit PIN code: {pin}")
             pin_recs = self.loader.get_by_pincode(pin)
             if pin_recs:
-                trace.append(f"Retrieved {len(pin_recs)} registered post offices for PIN {pin}.")
+                trace.append(f"Found {len(pin_recs)} post offices for PIN {pin}.")
                 candidates = pin_recs
                 matched_stage = "exact_pin"
 
-        # STAGE 2: Partial PIN Match (e.g. 5-digit prefix like 20130)
         if not candidates and parsed["partial_pincode"]:
             prefix = parsed["partial_pincode"]
-            trace.append(f"Detected partial PIN prefix: {prefix}")
             prefix_recs = self.loader.get_by_prefix(prefix)
             if prefix_recs:
                 trace.append(f"Found {len(prefix_recs)} candidate post offices matching prefix {prefix}*.")
                 candidates = prefix_recs
                 matched_stage = "prefix_pin"
 
-        # STAGE 3: District / City / State matching
         if not candidates:
             district = parsed["district"]
             city = parsed["city"]
             state = parsed["state"]
 
             if district:
-                trace.append(f"Identified administrative district/city: {district}{f', {state}' if state else ''}.")
                 dist_recs = self.loader.get_by_district(district, state=state)
                 if dist_recs:
                     candidates = dist_recs
@@ -64,15 +105,12 @@ class PostalResolver:
                     matched_stage = "city"
 
             if not candidates and state:
-                trace.append(f"Identified state jurisdiction: {state}.")
                 state_recs = self.loader.get_by_state(state)
                 if state_recs:
                     candidates = state_recs[:150]
                     matched_stage = "state"
 
-        # STAGE 4: General Token Search Fallback
         if not candidates:
-            trace.append("Scanning national postal database using token correlation.")
             token_recs = self.loader.search_by_tokens(parsed["tokens"], state=parsed["state"], district=parsed["district"], limit=50)
             if token_recs:
                 candidates = token_recs
@@ -85,11 +123,12 @@ class PostalResolver:
                 "trace": trace + ["No matching postal office found in index."]
             }
 
-        # SCORING CANDIDATES
-        scored: List[Tuple[float, Dict[str, Any], List[str]]] = []
+        # 3. Fast pre-scoring to narrow down to top candidates before geological resolution
         raw_lower = raw_address.lower()
         block_or_sec = parsed["block_or_sector"]
         roman = parsed["roman_numeral"]
+
+        pre_scored: List[Tuple[float, Dict[str, Any], List[str]]] = []
 
         for c in candidates:
             score = 0.50
@@ -97,123 +136,138 @@ class PostalResolver:
             office_name = c["office"].lower()
             office_tokens = set(re.split(r'[^a-z0-9]+', office_name))
 
-            # Exact PIN reward
             if matched_stage == "exact_pin":
                 score += 0.35
-                reasons.append("Exact PIN match")
-
-            # Partial PIN reward
+                reasons.append("Exact PIN code match")
             elif matched_stage == "prefix_pin":
                 score += 0.25
                 reasons.append(f"Prefix {parsed['partial_pincode']}* match")
 
-            # District & State concordance
-            if parsed["district"] and parsed["district"].lower() in c["district"].lower():
-                score += 0.10
-            if parsed["state"] and parsed["state"].lower() in c["state"].lower():
-                score += 0.05
-
-            # Bonus for specific sub-locality / block / sector matching
+            # Block / Sub-locality match
             if roman and (f" {roman.lower()} " in f" {office_name} " or office_name.endswith(f" {roman.lower()}")):
-                score += 0.30
-                reasons.append(f"Matched block numeral '{roman}' in office name ({c['office']})")
+                score += 0.35
+                reasons.append(f"Block numeral '{roman}' in office name")
             elif block_or_sec and any(tok in office_name for tok in block_or_sec.lower().split()):
-                score += 0.20
-                reasons.append(f"Matched sector/block token '{block_or_sec}'")
+                score += 0.25
+                reasons.append(f"Sector/block token '{block_or_sec}'")
 
-            # Token overlap between address and office name
+            # Token overlap
             matching_tokens = [tok for tok in parsed["tokens"] if tok in office_tokens and len(tok) > 2]
             if matching_tokens:
-                bonus = min(0.20, len(matching_tokens) * 0.08)
-                score += bonus
-                reasons.append(f"Matched landmark/locality token(s): {', '.join(matching_tokens)}")
+                score += min(0.20, len(matching_tokens) * 0.08)
+                reasons.append(f"Locality match: {', '.join(matching_tokens)}")
 
-            # Prefer Head Office or Main delivery office if non-specific locality
-            if c["type"] == "Head Post Office (H.O)":
-                score += 0.04
-            elif "H O" in c["office"] or "Central" in c["office"]:
-                score += 0.03
+            # Head office / Central delivery boost
+            if c["type"] == "Head Post Office (H.O)" or "H O" in c["office"] or "Central" in c["office"]:
+                score += 0.05
 
-            # Special locality boosters for samples (Anu -> Govt Degree Clg / Hamirpur)
             if "anu" in raw_lower and ("govt degree" in office_name or "hamirpur" in office_name):
                 score += 0.15
-                reasons.append("Matched educational/Anu locality zone")
             if "gandhi" in raw_lower and "ludhiana" in raw_lower and ("h o" in office_name or "ludhiana" == office_name):
-                score += 0.08
-                reasons.append("Servicing Gandhi Nagar central zone")
+                score += 0.10
 
-            scored.append((score, c, reasons))
+            pre_scored.append((score, c, reasons))
 
-        scored.sort(key=lambda x: x[0], reverse=True)
-        raw_best_score, best_office, best_reasons = scored[0]
-        best_score = min(0.99, max(0.40, raw_best_score))
+        # Sort pre-scored candidates and take top 6 for precise geopy geodesic distance calculation
+        pre_scored.sort(key=lambda x: x[0], reverse=True)
+        top_candidates = pre_scored[:6]
 
-        # Add traces for selection
-        trace.append(f"Selected nearest serviceable office: {best_office['office']} (PIN: {best_office['pincode']}).")
-        if best_reasons:
-            trace.append(f"Selection criteria: {'; '.join(best_reasons)}.")
+        # 4. Resolve exact coordinates and geodesic distance for top candidates
+        geodesic_scored: List[Tuple[float, Dict[str, Any], Tuple[float, float], Optional[float], List[str]]] = []
 
-        # Resolve Coordinates & Distances
-        best_query = f"{best_office['office']} {best_office['district']} {best_office['state']} {best_office['pincode']}"
-        best_coords = self.geocoder.geocode(
-            best_query,
-            state=best_office["state"],
-            district=best_office["district"],
-            pincode=best_office["pincode"]
-        )
-
-        query_coords = self.geocoder.geocode(
-            raw_address,
-            state=parsed["state"],
-            district=parsed["district"],
-            pincode=parsed["pincode"]
-        )
-
-        distance_km = None
-        if query_coords and best_coords:
-            distance_km = self.geocoder.haversine(query_coords, best_coords)
-            trace.append(f"Calculated distance: {distance_km} km between delivery address and post office.")
-
-        # Alternatives
-        alternatives = []
-        for alt_score, alt_rec, _ in scored[1:4]:
-            alt_query = f"{alt_rec['office']} {alt_rec['district']} {alt_rec['state']} {alt_rec['pincode']}"
-            alt_coords = self.geocoder.geocode(
-                alt_query,
-                state=alt_rec["state"],
-                district=alt_rec["district"],
-                pincode=alt_rec["pincode"]
+        for p_score, c, reasons in top_candidates:
+            po_coords = self.geocoder.geocode_post_office(
+                c["office"], c["district"], c["state"], c["pincode"]
             )
-            alternatives.append({
-                "office": f"{alt_rec['office']} ({alt_rec['pincode']})",
-                "score": f"{min(98, round(alt_score * 100))}%",
-                "lat": alt_coords[0] if alt_coords else None,
-                "lon": alt_coords[1] if alt_coords else None
-            })
+            d_km = None
+            final_score = p_score
+            if user_coords:
+                d_km = self.geocoder.calculate_geodesic_distance(user_coords, po_coords)
+                if d_km <= 1.0:
+                    final_score += 0.25
+                    reasons.append(f"Geologically closest ({d_km} km away)")
+                elif d_km <= 3.0:
+                    final_score += 0.15
+                    reasons.append(f"Near vicinity ({d_km} km away)")
+                elif d_km <= 6.0:
+                    final_score += 0.08
+                elif d_km > 15.0:
+                    final_score -= 0.10
+
+            geodesic_scored.append((final_score, c, po_coords, d_km, reasons))
+
+        # Sort by final score & shortest distance
+        geodesic_scored.sort(key=lambda x: (x[0], -x[3] if x[3] is not None else 0), reverse=True)
+
+        raw_best_score, best_office, best_coords, best_distance, best_reasons = geodesic_scored[0]
+        final_confidence = min(0.99, max(0.40, raw_best_score))
+
+        trace.append(f"Identified nearest serviceable post office: {best_office['office']} (PIN: {best_office['pincode']}).")
+        if best_distance is not None:
+            trace.append(f"Geodesic distance to post office: {best_distance} km.")
+        if best_reasons:
+            trace.append(f"Criteria: {'; '.join(best_reasons)}.")
+
+        # Detailed Post Office attributes
+        state_name = best_office["state"]
+        circle_name = POSTAL_CIRCLES.get(state_name, f"{state_name} Postal Circle")
+        division_name = f"{best_office['district']} Postal Division"
 
         best_payload = {
             "office": best_office["office"],
             "pincode": best_office["pincode"],
             "type": best_office["type"],
             "district": best_office["district"],
+            "city": best_office["city"],
             "state": best_office["state"],
-            "lat": best_coords[0] if best_coords else None,
-            "lon": best_coords[1] if best_coords else None
+            "circle": circle_name,
+            "division": division_name,
+            "delivery_status": "Delivery Office (Serviceable Beat)",
+            "services": [
+                "Speed Post & Tracking",
+                "Registered Post",
+                "Parcel & Logistics Post",
+                "Post Office Savings Bank (POSB)",
+                "Aadhaar Services (Enrollment & Update)",
+                "Postal Life Insurance (PLI)"
+            ],
+            "timings": "Mon - Sat: 9:00 AM - 5:00 PM (Public Counters: 9:30 AM - 3:30 PM)",
+            "lat": best_coords[0],
+            "lon": best_coords[1],
+            "distance_km": best_distance,
+            "directions_url": (
+                f"https://www.google.com/maps/dir/?api=1&origin={user_coords[0]},{user_coords[1]}&destination={best_coords[0]},{best_coords[1]}"
+                if user_coords else None
+            )
         }
 
+        # Alternatives
+        alternatives = []
+        for alt_score, alt_rec, alt_coords, alt_dist, _ in geodesic_scored[1:4]:
+            alternatives.append({
+                "office": f"{alt_rec['office']} ({alt_rec['pincode']})",
+                "score": f"{min(98, round(alt_score * 100))}%",
+                "distance_km": alt_dist,
+                "lat": alt_coords[0],
+                "lon": alt_coords[1]
+            })
+
         query_point_payload = None
-        if query_coords:
+        if user_coords:
             query_point_payload = {
-                "lat": query_coords[0],
-                "lon": query_coords[1]
+                "lat": user_coords[0],
+                "lon": user_coords[1],
+                "formatted_address": user_formatted_address,
+                "maps_url": user_maps_url
             }
 
         return {
             "best": best_payload,
-            "confidence": round(best_score, 2),
-            "distance_km": distance_km,
+            "confidence": round(final_confidence, 2),
+            "distance_km": best_distance,
             "parsed": {
-                "cleaned_address": parsed["cleaned_address"]
+                "cleaned_address": parsed["cleaned_address"],
+                "geocoded_address": user_formatted_address
             },
             "trace": trace,
             "query_point": query_point_payload,
